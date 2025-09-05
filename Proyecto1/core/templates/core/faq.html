@@ -1,0 +1,119 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Preguntas Frecuentes - Kona Bikes Concepción{% endblock %}
+
+{% block content %}
+<style>
+  .faq-banner {
+    position: relative;
+    background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+                url('https://images.unsplash.com/photo-1595433562696-19e9f17b1d0b?auto=format&fit=crop&w=1600&q=80')
+                center/cover no-repeat;
+    color: #fff;
+    text-align: center;
+    padding: 120px 20px;
+    border-radius: 1rem;
+    box-shadow: 0 12px 28px rgba(0,0,0,.25);
+  }
+  .faq-banner h1, 
+  .faq-banner p { text-shadow: 0 2px 6px rgba(0,0,0,.35); }
+</style>
+
+<!-- Banner -->
+<section class="faq-banner">
+  <h1 class="fw-bold display-4">Preguntas Frecuentes</h1>
+  <p class="lead">Resolvemos tus dudas más comunes sobre Kona Bikes Concepción 🚴</p>
+</section>
+
+<!-- Preguntas frecuentes -->
+<section class="container my-5">
+  <div class="accordion shadow-lg rounded-3" id="faqAccordion">
+    <!-- Pregunta 1 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq1">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+          ¿Qué es la marca Kona?
+        </button>
+      </h2>
+      <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Kona es una reconocida marca canadiense de bicicletas fundada en 1988, 
+          especializada en bicicletas de montaña, gravel, urbanas y de aventura, 
+          destacada por su durabilidad y diseño innovador.
+        </div>
+      </div>
+    </div>
+
+    <!-- Pregunta 2 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq2">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+          ¿Qué tipos de bicicleta vendemos?
+        </button>
+      </h2>
+      <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Contamos con bicicletas de montaña, gravel, urbanas y eléctricas, todas exclusivamente de la marca Kona.
+        </div>
+      </div>
+    </div>
+
+    <!-- Pregunta 3 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq3">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+          ¿Qué medios de pago aceptamos?
+        </button>
+      </h2>
+      <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Aceptamos tarjetas de débito, crédito, transferencias bancarias y pago en efectivo en tienda.
+        </div>
+      </div>
+    </div>
+
+    <!-- Pregunta 4 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq4">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
+          ¿Vendemos repuestos para bicicletas?
+        </button>
+      </h2>
+      <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Sí, ofrecemos repuestos y accesorios compatibles con bicicletas Kona, además de equipamiento para ciclistas.
+        </div>
+      </div>
+    </div>
+
+    <!-- Pregunta 5 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq5">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5">
+          En caso de fisura o fallo de componente, ¿existe alguna garantía?
+        </button>
+      </h2>
+      <div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Claro que sí 🚴‍♂️. Todas nuestras bicicletas cuentan con garantía de fábrica 
+          y respaldo oficial de Kona. Cubre fallas de fabricación y fisuras estructurales.
+        </div>
+      </div>
+    </div>
+
+    <!-- Pregunta 6 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq6">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6">
+          ¿Hacemos envíos a regiones?
+        </button>
+      </h2>
+      <div id="collapse6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Sí, realizamos envíos seguros a todas las regiones de Chile mediante empresas de transporte certificadas.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

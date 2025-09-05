@@ -1,0 +1,120 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Home - Kona Bikes{% endblock %}
+
+{% block carousel %}
+<!-- Hero con carrusel -->
+<div id="heroCarousel" class="carousel slide shadow" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <!-- Foto 1 -->
+    <div class="carousel-item active">
+      <img src="https://konaworld.com/cdn/shop/collections/2K24_MTB_Hardtail_Explainer_2800x1048_LANAI.png?v=1733101292&width=1800"
+           class="d-block w-100"
+           alt="Bicicleta Kona 1"
+           style="object-fit: cover; height: 100vh;">
+      <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3">
+        <h1 class="fw-bold">Bienvenido a Kona Bikes</h1>
+        <p>Aventura, resistencia y estilo en dos ruedas.</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'galeria_kona' %}">Ver Galería</a>
+      </div>
+    </div>
+    <!-- Foto 2 -->
+    <div class="carousel-item">
+      <img src="https://konaworld.com/cdn/shop/collections/platform_honzo_604e0bdd-677f-44dd-a838-a5197337bec0.jpg?v=1733102174&width=1800"
+           class="d-block w-100"
+           alt="Bicicleta Kona 2"
+           style="object-fit: cover; height: 100vh;">
+      <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3">
+        <h1 class="fw-bold">Explora Nuevos Caminos</h1>
+        <p>Bicis diseñadas para cualquier terreno.</p>
+      </div>
+    </div>
+    <!-- Foto 3 -->
+    <div class="carousel-item">
+      <img src="https://konaworld.com/cdn/shop/files/2K24-G3-Process-153-Web-2800x1400-ART.jpg?v=1733101324&width=1800"
+           class="d-block w-100"
+           alt="Bicicleta Kona 3"
+           style="object-fit: cover; height: 100vh;">
+      <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3">
+        <h1 class="fw-bold">Pasión por el Ciclismo</h1>
+        <p>Encuentra tu compañera de ruta ideal.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controles -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Estilos mínimos solo para esta página -->
+<style>
+  .hero {
+    background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+                url('https://images.unsplash.com/photo-1612874743305-9d0d3cf898b5?auto=format&fit=crop&w=1470&q=80')
+                center/cover no-repeat;
+    color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 12px 28px rgba(0,0,0,.25);
+  }
+  .hero h1, .hero p { text-shadow: 0 2px 6px rgba(0,0,0,.35); }
+  .hero .btn { backdrop-filter: blur(2px); }
+
+  .feature-card {
+    border: 0;
+    box-shadow: 0 6px 14px rgba(0,0,0,.08);
+    transition: transform .18s ease, box-shadow .18s ease;
+    border-radius: 1rem;
+  }
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0,0,0,.12);
+  }
+  .feature-icon {
+    font-size: 2.2rem;
+    line-height: 1;
+    margin-bottom: .5rem;
+  }
+</style>
+
+<!-- Características -->
+<section class="container">
+  <div class="row g-4 text-center">
+    <div class="col-12 col-md-4">
+      <div class="card feature-card h-100">
+        <div class="card-body">
+          <div class="feature-icon">✅</div>
+          <h5 class="card-title">Calidad Garantizada</h5>
+          <p class="card-text">Cada bicicleta Kona se fabrica con estándares premium para rendir al máximo.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <div class="card feature-card h-100">
+        <div class="card-body">
+          <div class="feature-icon">🛠️</div>
+          <h5 class="card-title">Resistencia y Durabilidad</h5>
+          <p class="card-text">Listas para cualquier terreno: ciudad, gravel o montaña sin piedad.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <div class="card feature-card h-100">
+        <div class="card-body">
+          <div class="feature-icon">🤝</div>
+          <h5 class="card-title">Servicio Personalizado</h5>
+          <p class="card-text">Te guiamos para elegir la Kona perfecta según tu estilo y objetivos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
