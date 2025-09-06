@@ -1,0 +1,96 @@
+.logo-invert {
+    filter: invert(1);
+}
+
+footer {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+section a {
+  transition: transform 0.2s ease-in-out;
+}
+section a:hover {
+  transform: scale(1.2);
+  color: #007bff; 
+}
+
+.main-carousel .carousel-item {
+    height: 92vh;
+}
+
+.main-carousel .carousel-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .main-carousel .carousel-item {
+        height: 40vh;
+    }
+}
+
+
+.hero h1, .hero p { text-shadow: 0 2px 6px rgba(0,0,0,.35); }
+.hero .btn { backdrop-filter: blur(2px); }
+
+.feature-card {
+  border: 0;
+  box-shadow: 0 6px 14px rgba(0,0,0,.08);
+  transition: transform .18s ease, box-shadow .18s ease;
+  border-radius: 1rem;
+}
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,.12);
+}
+.feature-icon {
+  font-size: 2.2rem;
+  line-height: 1;
+  margin-bottom: .5rem;
+}
+
+.galeria-banner {
+    background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+                url('https://cdn.hibike.com/image/Misc/zzz/zzz_hbheader_eSh_m70338_Kona_2022.png')
+                center/contain no-repeat;
+    color: #fff;
+    text-align: center;
+    padding: 160px 20px;
+    box-shadow: 0 12px 28px rgba(0,0,0,.25);
+    border-radius: 10px;
+  } 
+  
+  .galeria-banner h1 { text-shadow: 0 2px 6px rgba(0,0,0,.35); }
+  
+  .bike-card {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 6px 14px rgba(0,0,0,.15);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .bike-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,.2);
+  }
+  .bike-card h5 {
+    margin: 0;
+    padding: 12px;
+    background: #ffffff;
+    font-weight: bold;
+  }
+  
+.faq-banner {
+    position: relative;
+    background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+                url('https://www.fundacionmapfre.org/media/blog/reparacion-bici-1194x585-1.jpg')
+                center/cover no-repeat;
+    color: #fff;
+    text-align: center;
+    padding: 120px 20px;
+    border-radius: 1rem;
+    box-shadow: 0 12px 28px rgba(0,0,0,.25);
+  }
+.faq-banner h1, 
+.faq-banner p { text-shadow: 0 2px 6px rgba(0,0,0,.35); }
