@@ -1,3 +1,5 @@
+/* static/css/styles.css */
+
 .logo-invert {
     filter: invert(1);
 }
@@ -8,11 +10,11 @@ footer {
 }
 
 section a {
-  transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
 }
 section a:hover {
-  transform: scale(1.2);
-  color: #007bff; 
+    transform: scale(1.2);
+    color: #007bff;
 }
 
 .main-carousel .carousel-item {
@@ -31,24 +33,57 @@ section a:hover {
     }
 }
 
-
-.hero h1, .hero p { text-shadow: 0 2px 6px rgba(0,0,0,.35); }
-.hero .btn { backdrop-filter: blur(2px); }
+.hero h1, .hero p { 
+    text-shadow: 0 2px 6px rgba(0,0,0,.35); 
+}
+.hero .btn { 
+    backdrop-filter: blur(2px); 
+}
 
 .feature-card {
-  border: 0;
-  box-shadow: 0 6px 14px rgba(0,0,0,.08);
-  transition: transform .18s ease, box-shadow .18s ease;
-  border-radius: 1rem;
+    border: 0;
+    box-shadow: 0 6px 14px rgba(0,0,0,.08);
+    transition: transform .18s ease, box-shadow .18s ease;
+    border-radius: 1rem;
 }
 .feature-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0,0,0,.12);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0,0,0,.12);
 }
 .feature-icon {
-  font-size: 2.2rem;
-  line-height: 1;
-  margin-bottom: .5rem;
+    font-size: 2.2rem;
+    line-height: 1;
+    margin-bottom: .5rem;
+}
+
+.banner-qs {
+    position: relative;
+    background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+                url('https://www.shutterstock.com/image-photo/road-bike-triathlon-race-cyclist-600nw-1439562110.jpg')
+                center/cover no-repeat;
+    color: #fff;
+    text-align: center;
+    padding: 120px 20px;
+    box-shadow: 0 12px 28px rgba(0,0,0,.25);
+}
+.banner-qs h1, 
+.banner-qs p { 
+    text-shadow: 0 2px 6px rgba(0,0,0,.35); 
+}
+
+.about-section {
+    max-width: 900px;
+    margin: 60px auto;
+    text-align: justify;
+}
+.about-section h2 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.about-section p {
+    text-align: justify;
+    font-size: 1.1rem;
+    line-height: 1.7;
 }
 
 .galeria-banner {
@@ -60,27 +95,28 @@ section a:hover {
     padding: 160px 20px;
     box-shadow: 0 12px 28px rgba(0,0,0,.25);
     border-radius: 10px;
-  } 
-  
-  .galeria-banner h1 { text-shadow: 0 2px 6px rgba(0,0,0,.35); }
-  
-  .bike-card {
+} 
+.galeria-banner h1 { 
+    text-shadow: 0 2px 6px rgba(0,0,0,.35); 
+}
+
+.bike-card {
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0 6px 14px rgba(0,0,0,.15);
     transition: transform .2s ease, box-shadow .2s ease;
-  }
-  .bike-card:hover {
+}
+.bike-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 24px rgba(0,0,0,.2);
-  }
-  .bike-card h5 {
+}
+.bike-card h5 {
     margin: 0;
     padding: 12px;
     background: #ffffff;
     font-weight: bold;
-  }
-  
+}
+
 .faq-banner {
     position: relative;
     background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
@@ -91,6 +127,8 @@ section a:hover {
     padding: 120px 20px;
     border-radius: 1rem;
     box-shadow: 0 12px 28px rgba(0,0,0,.25);
-  }
+}
 .faq-banner h1, 
-.faq-banner p { text-shadow: 0 2px 6px rgba(0,0,0,.35); }
+.faq-banner p { 
+    text-shadow: 0 2px 6px rgba(0,0,0,.35); 
+}
