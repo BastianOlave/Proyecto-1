@@ -1,4 +1,19 @@
-/* static/css/styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@700&family=Roboto&display=swap');
+
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
+.home-banner,
+.banner-qs h1,
+.banner-qs p,
+.faq-banner h1,
+.faq-banner p,
+.galeria-banner h1,
+.hero h1
+.hero p {
+    font-family: 'Silkscreen', sans-serif;
+}
 
 .logo-invert {
     filter: invert(1);

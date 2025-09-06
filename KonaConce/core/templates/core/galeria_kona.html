@@ -12,7 +12,7 @@
 <section class="container my-5">
   <div class="row g-4">
     <div class="col-12 col-md-4">
-      <div class="bike-card">
+      <div class="bike-card" data-tittle="Kona Lana'i" data-images='["https://konaworld.com/cdn/shop/files/my23_lanai_grey.jpg?v=1733096523&width=1800", "https://konaworld.com/cdn/shop/files/my23_lanai_grey_angle.jpg?v=1733096523&width=1800"]'>
         <div id="lanaicarousel" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="col-12 col-md-4">
-      <div class="bike-card">
+      <div class="bike-card" data-tittle="Kona Lava Dome" data-images='["https://konaworld.com/cdn/shop/files/my23_lava_dome_white.jpg?v=1733097704&width=1800", "https://konaworld.com/cdn/shop/files/my23_lava_dome_white_angle.jpg?v=1733097704&width=1800"]'>
         <div id="lavadomecarousel" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -58,7 +58,7 @@
       </div>
     </div>
     <div class="col-12 col-md-4">
-      <div class="bike-card">
+      <div class="bike-card" data-tittle="Kona Mahuna" data-images='["https://konaworld.com/cdn/shop/files/2k25_mahuna-1.jpg?v=1745359443&width=1800", "https://konaworld.com/cdn/shop/files/2k25_mahuna-2.jpg?v=1745359443&width=1800"]'>
         <div id="mahunacarousel" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -82,4 +82,30 @@
     </div>
   </div>
 </section>
+
+<div class="modal fade" id="bikeModal" tabindex="-1" aria-labelledby="bikeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="bikeModalLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="modalCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#modalCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#modalCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}
