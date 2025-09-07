@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@700&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Condensed:wght@400;500;600;700&family=Roboto&display=swap');
 
 body{
   font-family: 'Roboto', sans-serif;
@@ -12,14 +12,16 @@ body{
 .galeria-banner h1,
 .hero h1
 .hero p {
-    font-family: 'Silkscreen', sans-serif;
+    font-family: 'Cabin Condensed', sans-serif;
+    font-weight: 700;
+    font-style: normal;
 }
-
 .logo-invert {
     filter: invert(1);
 }
 
 footer {
+    font-family: 'Roboto', sans-serif;
     font-size: 0.9rem;
     letter-spacing: 0.5px;
 }
@@ -147,3 +149,16 @@ section a:hover {
 .faq-banner p { 
     text-shadow: 0 2px 6px rgba(0,0,0,.35); 
 }
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(100,100,100,0.5);
+    border-radius: 50%;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+    background-color: rgba(80,80,80,0.8);
+}   

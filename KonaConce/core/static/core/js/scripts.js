@@ -3,6 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalTitle = document.getElementById("bikeModalLabel");
   const modalInner = document.querySelector("#modalCarousel .carousel-inner");
 
+  document.querySelectorAll(".carousel-control-prev, .carousel-control-next")
+    .forEach(btn => {
+      btn.addEventListener("click", e => e.stopPropagation());
+    });
+
   bikeCards.forEach(card => {
     card.addEventListener("click", () => {
       const title = card.getAttribute("data-title");
