@@ -1,0 +1,151 @@
+{% extends "core/base.html" %}
+{% load custom_filters %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="card shadow-sm rounded-4 overflow-hidden">
+        <div class="row g-0">
+          <!-- IMAGEN -->
+          <div class="col-md-6 d-flex align-items-center justify-content-center p-4 bg-light">
+            {% if bike.image %}
+              <a href="#" data-bs-toggle="modal" data-bs-target="#zoomModal" aria-label="Ver imagen en grande">
+                <img src="{{ bike.image.url }}" alt="{{ bike.name }}" class="img-fluid rounded zoom-hover" style="max-height:380px; object-fit:cover;">
+              </a>
+            {% else %}
+              <div class="d-flex align-items-center justify-content-center bg-secondary text-white rounded" style="height:380px;">
+                Sin imagen
+              </div>
+            {% endif %}
+          </div>
+
+          <!-- INFO -->
+          <div class="col-md-6 p-4 d-flex flex-column">
+            <div>
+              <h2 class="fw-bold mb-3">{{ bike.name }}</h2>
+
+              <p class="text-muted mb-4" style="white-space: pre-line;">
+                {{ bike.description }}
+              </p>
+
+              <h3 class="text-success fw-bold mb-3">
+                {{ bike.price|currency_cl }}
+              </h3>
+
+              <p class="mb-2">
+                <strong>Stock:</strong>
+                <span id="stock-count">
+                  {% if bike.stock %}1{% else %}0{% endif %}
+                </span>
+                {% if bike.stock %}
+                  <span id="stock-label" class="badge bg-success ms-2">Disponible</span>
+                {% else %}
+                  <span id="stock-label" class="badge bg-danger ms-2">Sin stock</span>
+                {% endif %}
+              </p>
+
+              <p class="small text-secondary mb-4">
+                {% if bike.updated and bike.updated != bike.created %}
+                  Modificado el {{ bike.updated|date:"d/m/Y" }} a las {{ bike.updated|date:"H:i" }}
+                {% else %}
+                  Agregado el {{ bike.created|date:"d/m/Y" }} a las {{ bike.created|date:"H:i" }}
+                {% endif %}
+              </p>
+            </div>
+
+            <!-- BOTÓN -->
+            <div class="mt-auto">
+              {% if bike.stock %}
+                <button id="addToCartBtn" class="btn btn-primary btn-lg w-100 rounded-pill">🛒 Agregar al carrito</button>
+              {% else %}
+                <button class="btn btn-secondary btn-lg w-100 rounded-pill" disabled>Sin stock</button>
+              {% endif %}
+            </div>
+
+            <!-- Contenedor para el mensaje de "Bici agregada..." -->
+            <div id="cartAlertContainer" class="mt-3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL PARA ZOOM -->
+<div class="modal fade" id="zoomModal" tabindex="-1" aria-labelledby="zoomModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 d-flex justify-content-center">
+        {% if bike.image %}
+          <img src="{{ bike.image.url }}" alt="{{ bike.name }}" class="img-fluid rounded">
+        {% endif %}
+      </div>
+      <div class="modal-footer border-0 justify-content-center">
+        <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ESTILOS LOCALES (puedes moverlos a static/ después) -->
+<style>
+.zoom-hover {
+  transition: transform .25s ease;
+  cursor: zoom-in;
+}
+.zoom-hover:hover { transform: scale(1.04); }
+
+.card { background: #fff; }
+.modal-content img { max-height: 80vh; object-fit: contain; }
+</style>
+
+<!-- JS: comportamiento cliente (zoom ya lo maneja Bootstrap modal) -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const addBtn = document.getElementById('addToCartBtn');
+  if (!addBtn) return;
+
+  addBtn.addEventListener('click', function() {
+    const stockCountEl = document.getElementById('stock-count');
+    const stockLabelEl = document.getElementById('stock-label');
+    const container = document.getElementById('cartAlertContainer');
+
+    let count = parseInt(stockCountEl.textContent) || 0;
+    if (count <= 0) return;
+
+    // Decrementar visualmente el stock (1 -> 0)
+    count = Math.max(0, count - 1);
+    stockCountEl.textContent = count;
+    if (count === 0) {
+      stockLabelEl.textContent = 'Sin stock';
+      stockLabelEl.className = 'badge bg-danger ms-2';
+      addBtn.disabled = true;
+      addBtn.classList.remove('btn-primary');
+      addBtn.classList.add('btn-secondary');
+      addBtn.textContent = 'Añadido';
+    } else {
+      addBtn.textContent = 'Añadido';
+    }
+
+    // Fecha/hora actual para el mensaje (cliente)
+    const now = new Date();
+    const dd = String(now.getDate()).padStart(2, '0');
+    const mm = String(now.getMonth() + 1).padStart(2, '0');
+    const yyyy = now.getFullYear();
+    const hh = String(now.getHours()).padStart(2, '0');
+    const mins = String(now.getMinutes()).padStart(2, '0');
+
+    const msg = `Bici agregada el ${dd}/${mm}/${yyyy} a las ${hh}:${mins}`;
+
+    container.innerHTML = `
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        ${msg}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    `;
+  });
+});
+</script>
+{% endblock %}
+```
