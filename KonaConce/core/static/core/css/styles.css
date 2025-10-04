@@ -161,4 +161,13 @@ section a:hover {
 .carousel-control-prev-icon:hover,
 .carousel-control-next-icon:hover {
     background-color: rgba(80,80,80,0.8);
-}   
+}
+
+.zoom-hover {
+  transition: transform .25s ease;
+  cursor: zoom-in;
+}
+.zoom-hover:hover { transform: scale(1.04); }
+
+.card { background: #fff; }
+.modal-content img { max-height: 80vh; object-fit: contain; }
