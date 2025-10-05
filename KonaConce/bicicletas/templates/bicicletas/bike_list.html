@@ -2,29 +2,32 @@
 {% load custom_filters %}
 
 {% block content %}
-<div class="galeria-banner text-center py-10 mb-5" style="background-color:#f8f9fa;">
-    <h1>Modelos Disponibles</h1>
-</div>
+<section class="galeria-banner">
+  <h1 class="fw-bold display-4">Modelos Disponibles</h1>
+  <p class="lead">Explora las bicicletas Kona que tenemos para ti.</p>
+</section>
 
 <div class="container my-5">
     <div class="row">
         {% for bike in page_obj %}
         <div class="col-md-3 mb-4">
-            <div class="card h-100 shadow-sm bike-card">
-                <img src="{{ bike.image.url }}" class="card-img-top img-fluid" alt="{{ bike.name }}">
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold">{{ bike.name }}</h5>
-                    <p class="card-text text-muted mb-3" style="min-height: 60px;">
-                        {{ bike.description|truncatechars:100 }}
-                    </p>
-                    <p class="fw-bold fs-5 mt-auto">{{ bike.price|currency_cl }}</p>
-                    {% if bike.stock %}
-                        <button class="btn btn-success w-100">Disponible</button>
-                    {% else %}
-                        <span class="badge bg-danger w-100 py-2">Sin stock</span>
-                    {% endif %}
+            <a href="{% url 'bicicletas:bike_detail' bike.id %}" class="text-decoration-none text-dark">
+                <div class="card h-100 shadow-sm bike-card">
+                    <img src="{{ bike.image.url }}" class="card-img-top img-fluid" alt="{{ bike.name }}">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">{{ bike.name }}</h5>
+                        <p class="card-text text-muted mb-3" style="min-height: 60px;">
+                            {{ bike.description|truncatechars:100 }}
+                        </p>
+                        <p class="fw-bold fs-5 mt-auto">{{ bike.price|currency_cl }}</p>
+                        {% if bike.stock %}
+                            <span class="btn btn-success w-100">Disponible</span>
+                        {% else %}
+                            <span class="badge bg-danger w-100 py-2">Sin stock</span>
+                        {% endif %}
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         {% endfor %}
     </div>
