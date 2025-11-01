@@ -1,4 +1,3 @@
-
 import os
 from pathlib import Path
 
@@ -15,7 +14,7 @@ SECRET_KEY = 'django-insecure-1$dfp9^ws$n8unhvhhp(&ea(mn3b65iw(*^%3@$&_3i_7xxrpt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -29,6 +28,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'bicicletas',
+    'error404',
+    'formulario',
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +124,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 TEMPLATES[0]['DIRS'] = [BASE_DIR / 'templates']
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"

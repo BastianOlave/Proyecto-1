@@ -7,6 +7,30 @@
   <p class="lead">Explora las bicicletas Kona que tenemos para ti.</p>
 </section>
 
+<!-- ============================================= -->
+<!-- === SECCIÓN DE FILTROS (PUNTO 4) === -->
+<!-- ============================================= -->
+<div class="container text-center my-4">
+    <div class="btn-group shadow-sm" role="group" aria-label="Filtros por Categoría">
+        <!-- Botón para "Ver Todas" -->
+        <a href="{% url 'bicicletas:bike_list' %}" 
+           class="btn {% if not categoria_id_seleccionada %}btn-dark{% else %}btn-outline-dark{% endif %}">
+           Todas
+        </a>
+        <!-- Botones para cada categoría -->
+        {% for cat in categorias %}
+        <a href="?categoria={{ cat.id }}" 
+           class="btn {% if categoria_id_seleccionada == cat.id %}btn-dark{% else %}btn-outline-dark{% endif %}">
+           {{ cat.name }}
+        </a>
+        {% endfor %}
+    </div>
+</div>
+<!-- ============================================= -->
+<!-- === FIN SECCIÓN DE FILTROS === -->
+<!-- ============================================= -->
+
+
 <div class="container my-5">
     <div class="row">
         {% for bike in page_obj %}
@@ -32,15 +56,22 @@
         {% endfor %}
     </div>
 
+    <!-- ============================================= -->
+    <!-- === PAGINACIÓN (ACTUALIZADA CON FILTROS) === -->
+    <!-- ============================================= -->
     <div class="pagination d-flex justify-content-center mt-4">
         {% if page_obj.has_previous %}
-            <a class="btn btn-outline-dark mx-1" href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+            <!-- Mantenemos el filtro al ir a la página anterior -->
+            <a class="btn btn-outline-dark mx-1" href="?page={{ page_obj.previous_page_number }}{% if categoria_id_seleccionada %}&categoria={{ categoria_id_seleccionada }}{% endif %}">Anterior</a>
         {% endif %}
+        
         <span class="btn btn-secondary disabled mx-1">
             Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
         </span>
+        
         {% if page_obj.has_next %}
-            <a class="btn btn-outline-dark mx-1" href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+            <!-- Mantenemos el filtro al ir a la página siguiente -->
+            <a class="btn btn-outline-dark mx-1" href="?page={{ page_obj.next_page_number }}{% if categoria_id_seleccionada %}&categoria={{ categoria_id_seleccionada }}{% endif %}">Siguiente</a>
         {% endif %}
     </div>
 </div>

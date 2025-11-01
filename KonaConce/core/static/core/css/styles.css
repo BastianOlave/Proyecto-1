@@ -189,3 +189,7 @@ section a:hover {
 
 .card { background: #fff; }
 .modal-content img { max-height: 80vh; object-fit: contain; }
+
+textarea.form-control {
+    resize: none !important;
+}
