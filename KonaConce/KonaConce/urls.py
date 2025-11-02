@@ -13,9 +13,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("bicicletas/", include("bicicletas.urls")),
     path("formulario/", include("formulario.urls")),
+    path('pagina404/', views.pagina_404_view, name='pagina_404'),
 ]
-
-handler404 = 'error404.views.custom_404_view'
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
