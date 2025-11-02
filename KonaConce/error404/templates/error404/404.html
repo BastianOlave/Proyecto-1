@@ -3,8 +3,8 @@
 {% block content %}
 <div class="container text-center my-5">
     <h1 style="font-size: 6rem; color: #e63946;">404</h1>
-    <h2>Página no encontrada 😕</h2>
+    <h2>Página no encontrada</h2>
     <p>La ruta que buscas no existe o fue movida. Intenta volver al inicio.</p>
-    <a href="{% url 'home' %}" class="btn btn-primary mt-3">Volver al inicio</a>
+    <a href="{% url 'core:home' %}" class="btn btn-primary mt-3">Volver al inicio</a>
 </div>
 {% endblock %}
