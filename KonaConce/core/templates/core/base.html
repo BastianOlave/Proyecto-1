@@ -49,6 +49,31 @@
               
               <a class="nav-link" href="{% url 'formulario:vista_contacto' %}">Contacto</a>
             </li>
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <span class="nav-link text-warning">Hola, {{ user.username }} ({{ user.groups.first.name|default:"Usuario" }})</span>
+                </li>
+                <li class="nav-item">
+                  <form action="{% url 'autenticacion:logout' %}" method="post" class="d-inline">
+                      {% csrf_token %}
+                      <button type="submit" class="nav-link btn btn-link" style="text-decoration: none;">Cerrar Sesión</button>
+                  </form>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'autenticacion:login' %}">Ingresar</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Registrarse
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{% url 'autenticacion:registro_cliente' %}">Soy Cliente</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url 'autenticacion:registro_staff' %}">Soy Personal (Staff)</a></li>
+                    </ul>
+                </li>
+            {% endif %}
           </ul>
         </div>
       </div>

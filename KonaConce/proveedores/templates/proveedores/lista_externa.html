@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Accesorios de Proveedores (API Externa)</h2>
+    
+    {% if accesorios %}
+        <div class="row">
+            {% for item in accesorios %}
+            <div class="col-md-4 mb-4">
+                <div class="card shadow h-100 border-primary">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">{{ item.nombre }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ item.marca }}</h6>
+                        <p class="card-text">{{ item.descripcion }}</p>
+                        <h4 class="text-success">${{ item.precio }}</h4>
+                        <small class="text-muted">Stock disponible: {{ item.stock }}</small>
+                    </div>
+                    <div class="card-footer bg-transparent border-top-0">
+                        <button class="btn btn-outline-primary w-100">Comprar en Proveedor</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-warning text-center">
+            No se pudieron cargar los accesorios. Verifica que la API (Puerto 8001) esté encendida.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
