@@ -5,4 +5,4 @@ from .serializers import AccesorioSerializer
 class AccesorioViewSet(viewsets.ModelViewSet):
     queryset = Accesorio.objects.all()
     serializer_class = AccesorioSerializer
-    # ModelViewSet ya trae integrados GET, POST, PUT, DELETE.
+   

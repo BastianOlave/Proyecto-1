@@ -6,10 +6,8 @@ from django.contrib.contenttypes.models import ContentType
 from .forms import RegistroForm
 from bicicletas.models import Bike 
 
-# --- FUNCIÓN AUXILIAR ---
 def asignar_grupo_y_permisos(user, nombre_grupo, codenames_permisos):
     group, created = Group.objects.get_or_create(name=nombre_grupo)
-    
     if created:
         content_type = ContentType.objects.get_for_model(Bike)
         for codename in codenames_permisos:
@@ -22,12 +20,10 @@ def asignar_grupo_y_permisos(user, nombre_grupo, codenames_permisos):
     
     user.groups.add(group)
 
-# --- VISTA 1: REGISTRO CLIENTE ---
 def registro_cliente(request):
-    # BLOQUEO: Si ya está logueado, lo mandamos al inicio
     if request.user.is_authenticated:
         return redirect('/') 
-
+    
     if request.method == 'POST':
         form = RegistroForm(request.POST)
         if form.is_valid():
@@ -35,7 +31,7 @@ def registro_cliente(request):
             asignar_grupo_y_permisos(user, 'Cliente', ['view_bike'])
             login(request, user)
             messages.success(request, 'Registro de Cliente exitoso.')
-            return redirect('bicicletas:bike_list')
+            return redirect('/')
     else:
         form = RegistroForm()
     
@@ -44,9 +40,7 @@ def registro_cliente(request):
         'titulo_registro': 'Registro de Clientes'
     })
 
-# --- VISTA 2: REGISTRO STAFF ---
 def registro_staff(request):
-    # BLOQUEO: Si ya está logueado, lo mandamos al inicio
     if request.user.is_authenticated:
         return redirect('/') 
 
